@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Portfolio & Commissions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for clean typography & Cormorant Garamond for editorial flair -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        studio: {
+                            50: '#fafafa',
+                            100: '#f4f4f5',
+                            200: '#e4e4e7',
+                            800: '#27272a',
+                            900: '#18181b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom smooth scroll bar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fafafa;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d8;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #18181b;
+        }
+
+        /* Full height image container */
+        .artwork-viewport {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Fade-in reveal animation on scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-studio-50 text-studio-900 font-sans antialiased selection:bg-zinc-200">
+
+    <!-- Minimal Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-studio-50/80 backdrop-blur-md transition-all duration-300 py-6 px-8 sm:px-16 border-b border-zinc-200/40">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Artist Name / Branding -->
+            <!-- HOW TO EDIT: Change "YOUR NAME" to your actual artist name or brand -->
+            <a href="#" class="font-serif text-2xl sm:text-3xl tracking-widest uppercase font-light hover:opacity-60 transition-opacity">
+                YOUR NAME
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center space-x-12 text-xs tracking-widest uppercase font-light text-zinc-600">
+                <a href="#works" class="hover:text-black transition-colors">Works</a>
+                <a href="#commissions" class="hover:text-black transition-colors">Commissions</a>
+                <a href="#about" class="hover:text-black transition-colors">About & Terms</a>
+                <a href="#request-form" class="hover:text-black transition-colors border-b border-zinc-900 pb-0.5 text-black">Order Custom Piece</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menuBtn" class="md:hidden text-lg focus:outline-none p-2 text-zinc-800" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="hidden md:hidden pt-6 pb-2 space-y-4 text-xs uppercase tracking-widest font-light text-center border-t border-zinc-200/50 mt-4">
+            <a href="#works" class="block py-2 hover:text-black mobile-link">Works</a>
+            <a href="#commissions" class="block py-2 hover:text-black mobile-link">Commissions</a>
+            <a href="#about" class="block py-2 hover:text-black mobile-link">About & Terms</a>
+            <a href="#request-form" class="block py-2 text-black font-normal mobile-link">Order Custom Piece</a>
+        </div>
+    </header>
+
+    <!-- Hero / Title Intro -->
+    <section class="pt-40 pb-20 px-6 sm:px-12 text-center max-w-4xl mx-auto">
+        <span class="text-xs uppercase tracking-[0.25em] text-zinc-400 font-light block mb-4">Selected Portfolio</span>
+        <h1 class="font-serif text-4xl sm:text-6xl font-light tracking-wide text-zinc-900 leading-tight mb-6">
+            Visual Works & Digital Paintings
+        </h1>
+        <p class="text-xs sm:text-sm text-zinc-500 font-light tracking-wider uppercase">
+            Scroll down to view full works
+        </p>
+        <div class="mt-8 text-zinc-300 text-sm animate-bounce">
+            <i class="fa-solid fa-arrow-down-long"></i>
+        </div>
+    </section>
+
+    <!-- MAIN GALLERY: FULL PAGE VERTICAL SCROLL -->
+    <!-- HOW TO EDIT ARTWORKS: 
+         Each piece is wrapped in a section with class "artwork-entry".
+         Replace the `src="..."` URL with your own image paths (e.g., `src="images/piece1.jpg"`).
+    -->
+    <main id="works" class="space-y-32 sm:space-y-48 pb-32">
+
+        <!-- Artwork Piece 1 -->
+        <section class="artwork-entry reveal-on-scroll px-4 sm:px-12 lg:px-24">
+            <div class="max-w-6xl mx-auto">
+                <div class="w-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=2000&q=90" 
+                         alt="Solitude in Bloom" 
+                         loading="lazy" 
+                         class="w-full h-auto object-cover max-h-[85vh] mx-auto shadow-sm">
+                </div>
+                <div class="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between border-t border-zinc-200/60 pt-4 px-2">
+                    <div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-light tracking-wide text-zinc-900">Solitude in Bloom</h2>
+                        <p class="text-xs text-zinc-500 font-light mt-1">Digital Painting, Photoshop — 2026</p>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-light mt-2 sm:mt-0 tracking-widest uppercase">01 / Personal Work</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artwork Piece 2 -->
+        <section class="artwork-entry reveal-on-scroll px-4 sm:px-12 lg:px-24">
+            <div class="max-w-6xl mx-auto">
+                <div class="w-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=2000&q=90" 
+                         alt="The Wanderer's Twilight" 
+                         loading="lazy" 
+                         class="w-full h-auto object-cover max-h-[85vh] mx-auto shadow-sm">
+                </div>
+                <div class="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between border-t border-zinc-200/60 pt-4 px-2">
+                    <div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-light tracking-wide text-zinc-900">The Wanderer's Twilight</h2>
+                        <p class="text-xs text-zinc-500 font-light mt-1">Character Concept & Atmosphere — Procreate</p>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-light mt-2 sm:mt-0 tracking-widest uppercase">02 / Commissioned Piece</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artwork Piece 3 -->
+        <section class="artwork-entry reveal-on-scroll px-4 sm:px-12 lg:px-24">
+            <div class="max-w-6xl mx-auto">
+                <div class="w-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=90" 
+                         alt="Oceanic Drift" 
+                         loading="lazy" 
+                         class="w-full h-auto object-cover max-h-[85vh] mx-auto shadow-sm">
+                </div>
+                <div class="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between border-t border-zinc-200/60 pt-4 px-2">
+                    <div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-light tracking-wide text-zinc-900">Oceanic Drift</h2>
+                        <p class="text-xs text-zinc-500 font-light mt-1">Color & Lighting Texture Study</p>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-light mt-2 sm:mt-0 tracking-widest uppercase">03 / Environment Study</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artwork Piece 4 -->
+        <section class="artwork-entry reveal-on-scroll px-4 sm:px-12 lg:px-24">
+            <div class="max-w-6xl mx-auto">
+                <div class="w-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=2000&q=90" 
+                         alt="Celestial Reverie" 
+                         loading="lazy" 
+                         class="w-full h-auto object-cover max-h-[85vh] mx-auto shadow-sm">
+                </div>
+                <div class="mt-6 flex flex-col sm:flex-row sm:items-baseline justify-between border-t border-zinc-200/60 pt-4 px-2">
+                    <div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-light tracking-wide text-zinc-900">Celestial Reverie</h2>
+                        <p class="text-xs text-zinc-500 font-light mt-1">Full Body Render — Clip Studio Paint</p>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-light mt-2 sm:mt-0 tracking-widest uppercase">04 / Original Character</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- COMMISSIONS SECTION -->
+    <section id="commissions" class="py-24 bg-white border-t border-zinc-200/60 scroll-mt-20">
+        <div class="max-w-5xl mx-auto px-6 sm:px-12">
+            
+            <!-- Status Header -->
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 border border-emerald-300/80 bg-emerald-50/50 rounded-full text-xs tracking-widest uppercase text-emerald-800 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Commissions Open — Q4 2026
+                </div>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-zinc-900 mb-4">Commission Services</h2>
+                <p class="text-xs sm:text-sm text-zinc-500 max-w-lg mx-auto font-light leading-relaxed">
+                    Custom digital illustrations crafted tailored to your specifications. Review rates below before requesting.
+                </p>
+            </div>
+
+            <!-- Pricing Tiers Grid -->
+            <!-- HOW TO EDIT PRICING: Modify the prices ($120, $240, $450) and details below -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+                
+                <!-- Tier 1 -->
+                <div class="p-8 border border-zinc-200/80 rounded-none bg-studio-50/50 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 block mb-2">Option A</span>
+                        <h3 class="font-serif text-2xl font-light mb-2">Bust / Portrait</h3>
+                        <p class="text-3xl font-light text-zinc-900 mb-6">$120 <span class="text-xs text-zinc-400 font-normal">USD</span></p>
+                        <p class="text-xs text-zinc-600 leading-relaxed mb-6 font-light">
+                            Detailed character portrait focus from chest up. Ideal for avatars, book covers, and icons.
+                        </p>
+                        <ul class="text-xs text-zinc-500 space-y-2.5 font-light border-t border-zinc-200 pt-6 mb-8">
+                            <li>• Full color rendering</li>
+                            <li>• Soft atmospheric background</li>
+                            <li>• High-resolution 300 DPI File</li>
+                            <li>• Turnaround: 1–2 Weeks</li>
+                        </ul>
+                    </div>
+                    <a href="#request-form" onclick="preselectTier('Bust / Portrait ($120)')" class="block text-center py-3 border border-zinc-900 text-zinc-900 text-xs uppercase tracking-widest font-light hover:bg-zinc-900 hover:text-white transition-all">Select Tier</a>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="p-8 border-2 border-zinc-900 bg-white flex flex-col justify-between relative shadow-sm">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-900 text-white text-[9px] uppercase tracking-widest px-3 py-1">Popular</span>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 block mb-2">Option B</span>
+                        <h3 class="font-serif text-2xl font-light mb-2">Full Character</h3>
+                        <p class="text-3xl font-light text-zinc-900 mb-6">$240 <span class="text-xs text-zinc-400 font-normal">USD</span></p>
+                        <p class="text-xs text-zinc-600 leading-relaxed mb-6 font-light">
+                            Full-body character illustration highlighting outfit details, pose dynamic, and lighting.
+                        </p>
+                        <ul class="text-xs text-zinc-500 space-y-2.5 font-light border-t border-zinc-200 pt-6 mb-8">
+                            <li>• Full body figure design</li>
+                            <li>• Transparent + painted backdrop</li>
+                            <li>• 2 Sketch revision rounds</li>
+                            <li>• Turnaround: 2–3 Weeks</li>
+                        </ul>
+                    </div>
+                    <a href="#request-form" onclick="preselectTier('Full Character ($240)')" class="block text-center py-3 bg-zinc-900 text-white text-xs uppercase tracking-widest font-light hover:bg-black transition-all">Select Tier</a>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="p-8 border border-zinc-200/80 rounded-none bg-studio-50/50 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 block mb-2">Option C</span>
+                        <h3 class="font-serif text-2xl font-light mb-2">Full Scene</h3>
+                        <p class="text-3xl font-light text-zinc-900 mb-6">$450 <span class="text-xs text-zinc-400 font-normal">USD</span></p>
+                        <p class="text-xs text-zinc-600 leading-relaxed mb-6 font-light">
+                            Complex composition featuring multiple characters with detailed background environment.
+                        </p>
+                        <ul class="text-xs text-zinc-500 space-y-2.5 font-light border-t border-zinc-200 pt-6 mb-8">
+                            <li>• Full environment background</li>
+                            <li>• Commercial license available</li>
+                            <li>• PSD Source file upon request</li>
+                            <li>• Turnaround: 3–4 Weeks</li>
+                        </ul>
+                    </div>
+                    <a href="#request-form" onclick="preselectTier('Full Scene ($450)')" class="block text-center py-3 border border-zinc-900 text-zinc-900 text-xs uppercase tracking-widest font-light hover:bg-zinc-900 hover:text-white transition-all">Select Tier</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & TERMS SECTION -->
+    <section id="about" class="py-20 border-t border-zinc-200/60 bg-studio-50 scroll-mt-20">
+        <div class="max-w-4xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Artist Bio -->
+                <div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium block mb-2">Biography</span>
+                    <h3 class="font-serif text-3xl font-light mb-4">About the Artist</h3>
+                    <!-- HOW TO EDIT: Replace this bio text with your own summary -->
+                    <p class="text-xs sm:text-sm text-zinc-600 font-light leading-relaxed mb-4">
+                        Independent digital illustrator focused on moody lighting, character narratives, and atmospheric textures.
+                    </p>
+                    <p class="text-xs sm:text-sm text-zinc-600 font-light leading-relaxed">
+                        Available for personal commissions, book illustrations, key visuals, and album art covers.
+                    </p>
+                </div>
+
+                <!-- Terms Summary -->
+                <div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium block mb-2">Policy</span>
+                    <h3 class="font-serif text-3xl font-light mb-4">Terms of Service</h3>
+                    <div class="space-y-3 text-xs text-zinc-600 font-light leading-relaxed">
+                        <p><strong>Payment:</strong> 50% non-refundable deposit required before sketching. Payment via PayPal Invoice or Stripe.</p>
+                        <p><strong>Revisions:</strong> Includes up to 2 sketch phase revisions. Major changes post-approval incur additional fees.</p>
+                        <p><strong>Usage:</strong> Personal use only unless commercial rights are explicitly requested and paid for.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMISSION REQUEST FORM -->
+    <section id="request-form" class="py-24 bg-white border-t border-zinc-200/60 scroll-mt-20">
+        <div class="max-w-2xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-12">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-medium block mb-2">Inquiry</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-light text-zinc-900 mb-3">Submit Commission Request</h2>
+                <p class="text-xs text-zinc-500 font-light">
+                    Complete the details below. You will receive an invoice and confirmation email within 48 hours.
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="artCommissionForm" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Your Name *</label>
+                        <input type="text" id="formName" required placeholder="Full Name" class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Email Address *</label>
+                        <input type="email" id="formEmail" required placeholder="name@domain.com" class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Commission Type *</label>
+                        <select id="formTier" required class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900">
+                            <option value="">Choose an option...</option>
+                            <option value="Bust / Portrait ($120)">Bust / Portrait ($120)</option>
+                            <option value="Full Character ($240)">Full Character ($240)</option>
+                            <option value="Full Scene ($450)">Full Scene ($450)</option>
+                            <option value="Custom Project">Custom Project</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Usage Purpose *</label>
+                        <select id="formUsage" required class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900">
+                            <option value="Personal Use Only">Personal Use Only</option>
+                            <option value="Commercial License Needed">Commercial License Needed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Reference Image Links (Pinterest, Google Drive, Imgur)</label>
+                    <input type="url" id="formRefs" placeholder="https://..." class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2 font-medium">Project Description & Vision *</label>
+                    <textarea id="formDesc" rows="5" required placeholder="Describe character features, expression, mood, background details, and specific deadlines..." class="w-full px-4 py-3 text-xs bg-studio-50 border border-zinc-200 rounded-none focus:outline-none focus:border-zinc-900"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-zinc-900 text-white py-4 text-xs uppercase tracking-[0.2em] font-light hover:bg-black transition-colors">
+                    Send Commission Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-studio-50 border-t border-zinc-200/60 text-center">
+        <!-- HOW TO EDIT SOCIALS: Replace "#" with your actual profile links -->
+        <div class="flex justify-center items-center space-x-6 text-zinc-600 text-lg mb-6">
+            <a href="#" class="hover:text-black transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-black transition-colors" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-black transition-colors" title="ArtStation"><i class="fa-brands fa-artstation"></i></a>
+            <!-- HOW TO EDIT EMAIL: Replace "yourname@email.com" -->
+            <a href="mailto:yourname@email.com" class="hover:text-black transition-colors" title="Email"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+        <p class="text-[11px] uppercase tracking-widest text-zinc-400 font-light">
+            © <span id="year"></span> YOUR NAME. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- Form Submit Confirmation Modal -->
+    <div id="submitModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white max-w-md w-full p-8 text-center">
+            <div class="w-10 h-10 border border-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xs">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-light mb-2">Request Captured</h3>
+            <p class="text-xs text-zinc-500 font-light leading-relaxed mb-6">
+                Thank you, <span id="summaryName" class="font-normal text-zinc-900"></span>. Your request for <span id="summaryTier" class="font-normal text-zinc-900"></span> has been processed. A pre-formatted draft has also been created to send via email.
+            </p>
+            <button onclick="closeSubmitModal()" class="w-full bg-zinc-900 text-white py-3 text-xs uppercase tracking-widest font-light">
+                Close Window
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Preselect Tier Helper
+        function preselectTier(tierName) {
+            document.getElementById('formTier').value = tierName;
+        }
+
+        // Form Submit Handler (Works on static GitHub Pages)
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const tier = document.getElementById('formTier').value;
+            const usage = document.getElementById('formUsage').value;
+            const refs = document.getElementById('formRefs').value;
+            const desc = document.getElementById('formDesc').value;
+
+            // Display confirmation modal
+            document.getElementById('summaryName').textContent = name;
+            document.getElementById('summaryTier').textContent = tier;
+            document.getElementById('submitModal').classList.remove('hidden');
+            document.getElementById('submitModal').classList.add('flex');
+
+            // Construct mailto link as fallback for static GitHub Pages
+            // HOW TO EDIT EMAIL: Replace "yourname@email.com" below with your actual email
+            const mailtoEmail = "yourname@email.com";
+            const subject = encodeURIComponent(`Commission Request: ${tier} - ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTier: ${tier}\nUsage: ${usage}\nReferences: ${refs}\n\nProject Vision:\n${desc}`);
+            
+            // Trigger mail client as fallback
+            setTimeout(() => {
+                window.location.href = `mailto:${mailtoEmail}?subject=${subject}&body=${body}`;
+            }, 1000);
+
+            document.getElementById('artCommissionForm').reset();
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+            document.getElementById('submitModal').classList.remove('flex');
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
